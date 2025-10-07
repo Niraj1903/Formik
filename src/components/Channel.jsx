@@ -1,4 +1,16 @@
+import { useFormik } from "formik";
+
 const Channel = () => {
+  const formData = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      channel: "",
+    },
+  });
+
+  console.log("form value", formData.values);
+
   return (
     <>
       <div className="max-w-xl mx-auto p-4 bg-white shadow-lg rounded-lg">
@@ -16,6 +28,8 @@ const Channel = () => {
               placeholder="Name"
               id="name"
               name="name"
+              onChange={formData.handleChange}
+              value={formData.values.name}
             />
           </div>
 
@@ -31,6 +45,8 @@ const Channel = () => {
               type="email"
               placeholder="Email"
               name="email"
+              onChange={formData.handleChange}
+              value={formData.values.email}
             />
           </div>
 
@@ -46,6 +62,8 @@ const Channel = () => {
               type="text"
               name="channel"
               id="channel"
+              onChange={formData.handleChange}
+              value={formData.values.channel}
             />
           </div>
 

@@ -7,14 +7,15 @@ const Channel = () => {
       email: "",
       channel: "",
     },
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
-
-  console.log("form value", formData.values);
 
   return (
     <>
       <div className="max-w-xl mx-auto p-4 bg-white shadow-lg rounded-lg">
-        <form>
+        <form onSubmit={formData.handleSubmit}>
           <div className="mt-5 flex justify-between items-center">
             <label
               className="mr-5 text-lg font-medium text-gray-700"
@@ -68,7 +69,10 @@ const Channel = () => {
           </div>
 
           <div className="mt-6 flex justify-center">
-            <button className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition-colors"
+            >
               Submit
             </button>
           </div>
